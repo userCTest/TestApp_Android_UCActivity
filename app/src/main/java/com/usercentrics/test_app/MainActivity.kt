@@ -1,6 +1,8 @@
 package com.usercentrics.test_app
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
@@ -40,5 +42,17 @@ class MainActivity : AppCompatActivity() {
             this.finishAffinity()
         }
 
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == UsercentricsActivity.REQUEST_CODE &&
+            resultCode == UsercentricsActivity.RESULT_OK_CODE
+        ) {
+            val services = UsercentricsActivity.getResult(data)
+            for (service in services) {
+                Log.i("Consents: ", service.toString());
+            }
+        }
     }
 }
