@@ -36,24 +36,12 @@
 
     <Button
         android:id="@+id/btn_close_app"
-        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="164dp"
-        android:layout_marginLeft="164dp"
-        android:layout_marginTop="219dp"
-        android:layout_marginEnd="149dp"
-        android:layout_marginRight="149dp"
-        android:layout_marginBottom="70dp"
-        android:background="@android:color/holo_blue_light"
         android:text="@string/btn_close_app"
-        android:textColorHighlight="#03A9F4"
-        android:textColorLink="#03A9F4"
-        android:textSize="14sp"
-        app:cornerRadius="11dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
+        app:layout_constraintTop_toBottomOf="@+id/textView"/>
+    
 </androidx.constraintlayout.widget.ConstraintLayout>
