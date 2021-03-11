@@ -74,6 +74,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    implementation("com.usercentrics.sdk:UsercentricsSDK:1.9.8")
+    implementation("com.usercentrics.sdk:usercentrics-ui:1.10.0")
 
 }
