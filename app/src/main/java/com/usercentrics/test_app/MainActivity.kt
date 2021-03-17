@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.usercentrics.sdk.UsercentricsActivity
-import com.usercentrics.sdk.models.common.UserOptions
+import com.usercentrics.sdk.*
+import com.usercentrics.sdk.models.common.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -16,12 +16,15 @@ class MainActivity : AppCompatActivity() {
     //                      3NdtofNZ6
     //                      eE6nmpe4v
     //                      tbdaymyIU
-    private val settingsId = "Insi1P6_p"
+    //             tcf2   - opn4EGC0S
+    //             tcf2   - ZDQes7xES
+    //             tcf2   - EA4jnNPb9
+    //             ccpa   - syV5G8hMG
+    private val settingsId = "ZDQes7xES"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
 
         val userOptions = UserOptions(
             controllerId = null,
@@ -39,7 +42,6 @@ class MainActivity : AppCompatActivity() {
         btn_close_app.setOnClickListener{
             this.finishAffinity()
         }
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
