@@ -4,4 +4,6 @@
 <string name="btn_close_app">Close App</string>
 <string name="uc_logo">Usercentrics Logo</string>
 <string name="togglebutton">ToggleButton</string>
+    <string name="settings_id">Settings ID</string>
+    <string name="txt_go">Go</string>
 </resources>

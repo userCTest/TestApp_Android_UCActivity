@@ -1,12 +1,15 @@
-package com.usercentrics.test_app
+package com.ruimgreis.test_app
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.View.OnFocusChangeListener
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.usercentrics.sdk.*
 import com.usercentrics.sdk.models.common.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -19,30 +22,40 @@ class MainActivity : AppCompatActivity() {
     //             tcf2   - opn4EGC0S
     //             tcf2   - ZDQes7xES
     //             tcf2   - EA4jnNPb9
+    //             tcf2   - hKTmJ4UVL
     //             ccpa   - syV5G8hMG
-    private val settingsId = "ZDQes7xES"
+    private lateinit var settingsId: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val userOptions = UserOptions(
-            controllerId = null,
-            defaultLanguage = null,
-            version = null,
-            debugMode = null,
-            predefinedUI = true,
-            timeoutMillis = 30000,
-            noCache = null
-        )
+        // hides soft input keyboard
+        input_settings_id.showSoftInputOnFocus = false
 
-        UsercentricsActivity.start(this, settingsId, userOptions)
+        txt_version.text =  getVersionName()
+
+        btn_go.setOnClickListener(){ _ ->
+            if(input_settings_id.text.toString().isNullOrEmpty()){
+                Toast.makeText(this,
+                    "Please insert a SettingsId",
+                    Toast.LENGTH_LONG).show()
+            } else {
+                settingsId = input_settings_id.text.toString() ?: settingsId
+                showCMP(settingsId)
+            }
+        }
 
         val btn_close_app= findViewById<View>(R.id.btn_close_app)
         btn_close_app.setOnClickListener{
             this.finishAffinity()
         }
     }
+
+    private fun getVersionName(): String {
+        val pInfo = this.getPackageManager().getPackageInfo(this.getPackageName(), 0)
+        return pInfo.versionName ?: "test"
+}
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -54,5 +67,19 @@ class MainActivity : AppCompatActivity() {
                 Log.i("Consents: ", service.toString());
             }
         }
+    }
+
+    private fun showCMP(settingsId: String) {
+        val userOptions = UserOptions(
+            controllerId = null,
+            defaultLanguage = null,
+            version = null,
+            debugMode = null,
+            predefinedUI = true,
+            timeoutMillis = null,
+            noCache = null
+        )
+
+        UsercentricsActivity.start(this, settingsId, userOptions)
     }
 }

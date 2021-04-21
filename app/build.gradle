@@ -3,34 +3,15 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    /*compileSdkVersion 30
-    buildToolsVersion "30.0.2"
-
-    defaultConfig {
-        applicationId "com.usercentrics.test_app"
-        minSdkVersion 16
-        targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }*/
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.usercentrics.inappsdk"
-        minSdkVersion 16
+        applicationId "com.ruimgreis.inappsdk"
+        minSdkVersion 29
         targetSdkVersion 30
         versionCode 6
-        versionName "1.9.2"
+        versionName "$sdk_version"
         android.defaultConfig.vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
@@ -74,6 +55,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    implementation("com.usercentrics.sdk:usercentrics-ui:1.10.0")
+    implementation("com.usercentrics.sdk:usercentrics-ui:$sdk_version")
 
 }
