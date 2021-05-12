@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
+    private val LOG_TAG = "ViewActivity"
     // var to contain insjected settingsId
     private lateinit var settingsId: String
     // val to contain the activity launcher, to be used to start the UsercentricsActivityLauncher in method
@@ -66,7 +67,7 @@ class MainActivity : AppCompatActivity() {
             controllerId = null,
             defaultLanguage = null,
             version = null,
-            debugMode = null,
+            debugMode = true,
             predefinedUI = true,
             timeoutMillis = null,
             noCache = null
