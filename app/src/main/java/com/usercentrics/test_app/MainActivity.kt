@@ -67,11 +67,14 @@ class MainActivity : AppCompatActivity() {
             controllerId = null,
             defaultLanguage = null,
             version = null,
-            debugMode = true,
             predefinedUI = true,
             timeoutMillis = null,
-            noCache = null
+            noCache = null,
+            loggerLevel = UCLoggerLevel.DEBUG
         )
+
+//        val customFont = Typeface.createFromAsset(assets, "times_new_roman.ttf") // Font from assets + ttf
+//        val customFont = ResourcesCompat.getFont(this, R.font.poppins)!! // Font from internet + xml
 
         val predefinedUISettings = PredefinedUISettings(
             showCloseButton = false,
