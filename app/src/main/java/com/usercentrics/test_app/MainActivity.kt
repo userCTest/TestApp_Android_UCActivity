@@ -1,15 +1,16 @@
 package com.ruimgreis.test_app_ucactivity
 
+import android.graphics.Typeface
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.res.ResourcesCompat
 import com.usercentrics.sdk.*
 import com.usercentrics.sdk.models.common.*
 import com.usercentrics.sdk.ui.PredefinedUISettings
 import kotlinx.android.synthetic.main.activity_main.*
-
 
 class MainActivity : AppCompatActivity() {
     private val LOG_TAG = "ViewActivity"
@@ -74,11 +75,13 @@ class MainActivity : AppCompatActivity() {
         )
 
 //        val customFont = Typeface.createFromAsset(assets, "times_new_roman.ttf") // Font from assets + ttf
-//        val customFont = ResourcesCompat.getFont(this, R.font.poppins)!! // Font from internet + xml
+//        val customFont = Typeface.createFromAsset(assets, "inter_regular.ttf") // Font from assets + ttf
+        // FOR THIS TO WORK, ONE NEEDS TO HAVE THE font/poppins.xml AND values/font_certs.xml FILES
+        val customFont = ResourcesCompat.getFont(this, R.font.poppins)!! // Font from internet + xml
 
         val predefinedUISettings = PredefinedUISettings(
             showCloseButton = false,
-//            customFont = customFont
+           customFont = customFont
         )
 
         val arguments = UsercentricsActivityArguments(
